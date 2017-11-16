@@ -18,8 +18,8 @@ addons:
 env:
   global:
   - VERSION="11.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
-  - TRANSIFEX_USER='transbot@odoo-community.org'
-  - secure: Z06mZCN+Hm3myqHSOZpOOk1pd4oq1epAWZv6m9OX2bTNHbhyOVOGK6JWWsnDm/3DUCN1ZeLtSGOl9bvQfMa8ahQHA80MkLL16YlTvQV59Lh+L2gAYmxX+ogJCJgeQSVAXlGLscgkADCu/HzDlmatrDeROMtULn5i23j2qcyUNyM=
+  # - TRANSIFEX_USER='transbot@odoo-community.org'
+  # - secure: Z06mZCN+Hm3myqHSOZpOOk1pd4oq1epAWZv6m9OX2bTNHbhyOVOGK6JWWsnDm/3DUCN1ZeLtSGOl9bvQfMa8ahQHA80MkLL16YlTvQV59Lh+L2gAYmxX+ogJCJgeQSVAXlGLscgkADCu/HzDlmatrDeROMtULn5i23j2qcyUNyM=
 
   matrix:
   - LINT_CHECK="1"
@@ -42,9 +42,9 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   # Install libraries that require specific development headers, but not during lint test
-  - if ! [ "$LINT_CHECK" = "1" ]; then pip install pymssql MySQL-python pyodbc; fi
-  - printf '[options]\n\nrunning_env = dev\n' > ${HOME}/.openerp_serverrc
-  - ln -s ${TRAVIS_BUILD_DIR}/server_environment_files_sample ${TRAVIS_BUILD_DIR}/server_environment_files
+  # - if ! [ "$LINT_CHECK" = "1" ]; then pip install pymssql MySQL-python pyodbc; fi
+  # - printf '[options]\n\nrunning_env = dev\n' > ${HOME}/.openerp_serverrc
+  # - ln -s ${TRAVIS_BUILD_DIR}/server_environment_files_sample ${TRAVIS_BUILD_DIR}/server_environment_files
 script:
   - travis_run_tests
 
