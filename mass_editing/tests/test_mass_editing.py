@@ -141,7 +141,8 @@ class TestMassEditing(common.TransactionCase):
 
     def test_sidebar_action(self):
         """Test if Sidebar Action is added / removed to / from give object."""
-        action = self.mass.ref_ir_act_window_id and self.mass.ref_ir_act_window_id.binding_model_id
+        action = self.mass.ref_ir_act_window_id and \
+                 self.mass.ref_ir_act_window_id.binding_model_id
         self.assertTrue(action, 'Sidebar action must be exists.')
         # Remove the sidebar actions
         self.mass.unlink_action()
@@ -167,7 +168,7 @@ class TestMassEditing(common.TransactionCase):
         uninstall_hook(self.cr, registry)
         mass_action_id = self.mass.ref_ir_act_window_id.id
         value_cnt = len(self.env['ir.actions.act_window'].browse(
-                mass_action_id))
+                        mass_action_id))
         self.assertTrue(value_cnt == 0,
                         "Sidebar action must be removed when mass"
                         " editing module is uninstalled.")
