@@ -141,7 +141,7 @@ class TestMassEditing(common.TransactionCase):
 
     def test_sidebar_action(self):
         """Test if Sidebar Action is added / removed to / from give object."""
-        action = self.mass.ref_ir_act_window_id and \
+        action = self.mass.ref_ir_act_window_id and\
                  self.mass.ref_ir_act_window_id.binding_model_id
         self.assertTrue(action, 'Sidebar action must be exists.')
         # Remove the sidebar actions
